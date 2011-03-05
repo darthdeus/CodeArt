@@ -1,0 +1,132 @@
+/*CSS STANDARD FUNCTIONS*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+ul, ol {
+	list-style: none;
+}
+.cleaner {
+	display: inline-block;
+}
+.cleaner:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+ 	line-height: 0;
+	height: 0;
+}
+html[xmlns] .cleaner {
+	display: block;
+}
+* html .cleaner {
+	height: 1%;
+}
+
+/*CSS LAYOUT DEFINITIONS*/
+a {
+        color: #bfbfbf;
+        text-decoration: underline;
+}
+a:hover {
+        color: white;
+}
+body {
+	color: black;
+	font-size: 14px;
+	font-family: Calibri, Arial, Verdana, sans-serif;
+	background: darkseagreen url(images/body.jpg) top center no-repeat;
+        margin-bottom: 20px;
+}
+#container {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+h1 {
+    font-size: 27px;
+    margin-top: 10px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+#blocks {
+    width: 800px;
+    float: left;
+}
+
+aside {
+    width: 180px;
+    float: right;
+}
+
+.code #result-code {
+    width: 800px;
+    margin: 15px 0 15px 0;
+    background: rgba(255,255,255,0.3);
+    height: 300px;
+    font-family: Consolas, sans-serif;
+    font-size: 12px;
+    border-radius: 8px;
+}
+
+/* Format bloku */
+
+#blocks em {
+    background: rgb(230,230,230);
+    font-size: 11px;
+    padding: 1px;
+    color: black;
+    border-radius: 3px;
+}
+
+#blocks div {
+    background: rgba(50,50,50,0.2);
+    border: 1px solid rgba(0,0,0,0.2);
+    margin: 15px 15px;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 8px;
+}
+
+#blocks > div {
+    margin: 0;    
+}
+
+
+/* Format ovladacich prvku */
+
+.making aside span {
+    background: white;
+    font-size: 14px;
+    color: black;
+    border-radius: 5px;
+    padding: 2px;
+    margin: 0 5px 5px 0;
+    border: 1px solid rgb(100,100,100);
+    cursor: move;
+    line-height: 30px;
+}
+
+.making aside h2 {
+    color: black;
+    font-size: 18px;
+    margin: 30px 0 15px 0;
+    border-bottom: 1px solid rgb(25,25,25)
+}
