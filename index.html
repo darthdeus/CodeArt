@@ -1,59 +1,80 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>CodeArt</title>        
-        <link rel="stylesheet" href="style.css" media="screen">
-        <style type="text/css">
+<head>
+    <meta charset="utf-8">
+    <title>CodeArt</title>
+    <link rel="stylesheet" href="style.css" media="screen">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("aside span").draggable({
+                helper: "clone"
+            });
+            $("#blocks div").droppable({
+                accept: "aside span",
+                hoverClass: "active",
+                greedy: true,
+                drop: function(event, ui) {
+                    $(this).append($(("<div><em>" + ui.draggable.text() + "</em></div>")));
+                }
+            });
+        });
+    </script>
+    <style type="text/css">
 
-        </style>
-        </head>
-    <body>
-        <div id="container">
+    </style>
+</head>
+<body>
+<div id="container">
 
-            <h1>CodeArt</h1>
-            <p>Making HTML code has never been so fast&amp;simple</p>
+    <h1>CodeArt</h1>
 
-            <section class="making">
-                <div id="blocks">
-                    <div><em>html</em>
-                        <div><em>body</em>
-                            <div><em>ul</em> #top-menu
-                                <div><em>li</em></div>
-                                <div><em>li</em></div>
-                                <div><em>li</em></div>
-                            </div>
-                            <div><em>div</em> #content
-                                <div><em>div</em> #left
-                                    <div><em>ul</em> #left-menu
-                                    <div><em>li</em></div>
-                                    <div><em>li</em></div>
-                                    <div><em>li</em></div>
-                                    </div>
-                                </div>
-                                <div><em>div</em> #right</div>
-                            </div>
-                            <div><em>p</em> #footer</div>
-                        </div>
+    <p>Making HTML code has never been so fast&amp;simple</p>
+
+    <section class="making">
+        <div id="blocks">
+            <div><em>html</em>
+
+                <div><em>body</em>
+
+                    <div><em>ul</em> #top-menu
+                        <div><em>li</em></div>
+                        <div><em>li</em></div>
+                        <div><em>li</em></div>
                     </div>
+                    <div><em>div</em> #content
+                        <div><em>div</em> #left
+                            <div><em>ul</em> #left-menu
+                                <div><em>li</em></div>
+                                <div><em>li</em></div>
+                                <div><em>li</em></div>
+                            </div>
+                        </div>
+                        <div><em>div</em> #right</div>
+                    </div>
+                    <div><em>p</em> #footer</div>
                 </div>
-                <aside>
-                    <h2>Basic set</h2>
-                    <span>div</span>
-                    <span>span</span>
-                    <span>ul</span>
-                    <span>li</span>
-                    <span>p</span>
-
-                    <h2>Extendet set</h2>
-                    <span>html skeleton</span>                  
-                </aside>
-            </section>
-
-            <section class="code">
-                <textarea id="result-code" cols="90" rows="20"></textarea>
-            </section>
-            
+            </div>
         </div>
-    </body>
+        <aside>
+            <h2>Basic set</h2>
+            <span>div</span>
+            <span>span</span>
+            <span>ul</span>
+            <span>li</span>
+            <span>p</span>
+
+            <h2>Extendet set</h2>
+            <span>html skeleton</span>
+        </aside>
+    </section>
+
+    <section class="code">
+        <textarea id="result-code" cols="90" rows="20"></textarea>
+    </section>
+
+</div>
+</body>
 </html>

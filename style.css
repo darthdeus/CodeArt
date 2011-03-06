@@ -109,6 +109,10 @@ aside {
     margin: 0;    
 }
 
+#blocks div.active {
+    background: rgba(50,50,50,0.7);
+}
+
 
 /* Format ovladacich prvku */
 
