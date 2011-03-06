@@ -9,22 +9,39 @@
             src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
     <script type="text/javascript">
         $(function() {
+            $.fn.addDiv = function(draggable) {
+                var elem = $(("<div><em>" + draggable.text() + "</em></div>"));
+                elem.droppable(basic);
+                $(this).append(elem);
+            };
+
             $("aside span").draggable({
                 helper: "clone"
             });
-            
+
+            var generator = (function() {
+                return {
+                    clear: function() {
+                        $("#result-code").text("");
+                    },
+                    reload: function() {
+                        generator.clear();
+                        var code = $("#blocks").html();
+                        $("#result-code").text(code);
+                    }
+                };
+            })();
+
             var basic = {
                 accept: "aside span",
                 hoverClass: "active",
                 greedy: true,
                 drop: function(event, ui) {
-                    var elem = $(("<div><em>" + ui.draggable.text() + "</em></div>"));
-                    elem.droppable(basic);
-                    $(this).append(elem);
-                    
+                    $(this).addDiv(ui.draggable);
+                    generator.reload();
                 }
             };
-            
+
             $("#blocks div").droppable(basic);
         });
     </script>
