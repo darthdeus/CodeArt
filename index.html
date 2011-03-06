@@ -12,14 +12,20 @@
             $("aside span").draggable({
                 helper: "clone"
             });
-            $("#blocks div").droppable({
+            
+            var basic = {
                 accept: "aside span",
                 hoverClass: "active",
                 greedy: true,
                 drop: function(event, ui) {
-                    $(this).append($(("<div><em>" + ui.draggable.text() + "</em></div>")));
+                    var elem = $(("<div><em>" + ui.draggable.text() + "</em></div>"));
+                    elem.droppable(basic);
+                    $(this).append(elem);
+                    
                 }
-            });
+            };
+            
+            $("#blocks div").droppable(basic);
         });
     </script>
     <style type="text/css">
