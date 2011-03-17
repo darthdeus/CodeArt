@@ -10,9 +10,15 @@
     <script type="text/javascript">
         $(function() {
             $.fn.addDiv = function(draggable) {
-                var elem = $(("<div><em>" + draggable.text() + "</em></div>"));
-                elem.droppable(basic);
-                $(this).append(elem);
+                var type = draggable.text();
+                var container = $("<" + type + ">");
+
+                var info = $('<span class="info"><span class="label">' + type + '</span></span>');
+
+                container.append(info);
+//                var elem = $(("<div><em>" + draggable.text() + "</em></div>"));
+                container.droppable(basic);
+                $(this).append(container);
             };
 
             $("aside span").draggable({
@@ -42,7 +48,7 @@
                 }
             };
 
-            $("#blocks div").droppable(basic);
+            $("#blocks > *:not(.info)").droppable(basic);
         });
     </script>
     <style type="text/css">
@@ -58,27 +64,23 @@
 
     <section class="making">
         <div id="blocks">
-            <div><em>html</em>
+            <div><span class="info"><span class="label">div</span> #content</span>
 
-                <div><em>body</em>
-
-                    <div><em>ul</em> #top-menu
-                        <div><em>li</em></div>
-                        <div><em>li</em></div>
-                        <div><em>li</em></div>
-                    </div>
-                    <div><em>div</em> #content
-                        <div><em>div</em> #left
-                            <div><em>ul</em> #left-menu
-                                <div><em>li</em></div>
-                                <div><em>li</em></div>
-                                <div><em>li</em></div>
-                            </div>
-                        </div>
-                        <div><em>div</em> #right</div>
-                    </div>
-                    <div><em>p</em> #footer</div>
+                <div><span class="info"><span class="label">div</span> #left</span>
+                    <ul><span class="info"><span class="label">ul</span> #menu</span>
+                        <li><span class="info"><span class="label">li</span></span></li>
+                        <li><span class="info"><span class="label">li</span></span></li>
+                        <li><span class="info"><span class="label">li</span></span></li>
+                        <li><span class="info"><span class="label">li</span></span></li>
+                    </ul>
                 </div>
+                <div><span class="info"><span class="label">div</span> #right</span>
+
+                    <h1><span class="info"><span class="label">h1</span></span></h1>
+
+                    <p><span class="info"><span class="label">p</span></span></p>
+                </div>
+                <p><span class="info"><span class="label">div</span> #footer</span></p>
             </div>
         </div>
         <aside>
@@ -88,15 +90,14 @@
             <span>ul</span>
             <span>li</span>
             <span>p</span>
-
-            <h2>Extendet set</h2>
-            <span>html skeleton</span>
         </aside>
+        <br class="cleaner2">
     </section>
 
     <section class="code">
-        <textarea id="result-code" cols="90" rows="20"></textarea>
+        <div id="result-code" class="code" contentEditable="true"></div>
     </section>
+
 
 </div>
 </body>
